@@ -34,13 +34,19 @@
 	------------------------------------------------------ */
 	$(".home-slides").vegas({
 		transition: 'fade',
-		transitionDuration: 2500,
-		delay: 5000,
+		transitionDuration: 3000,
+		delay: 4000,
     	slides: [
 			{ src: "images/slides/01.jpg" },
        	{ src: "images/slides/03.jpg" },
         	{ src: "images/slides/02.jpg" },
-			{ src: "images/slides/04.jpg" }
+			{ src: "images/slides/04.jpg" },
+			{ src: "images/slides/05.jpg" },
+			{ src: "images/slides/06.jpg" },
+			{ src: "images/slides/07.jpg" },
+			{ src: "images/slides/08.jpg" },
+			{ src: "images/slides/09.jpg" },
+			{ src: "images/slides/010.jpg" }
 
     	]
 	});
