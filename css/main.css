@@ -22,14 +22,20 @@ Primary use:
 }
 
 @font-face {
-  font-family: Poppins-Thin;
-  src: url('../fonts/Poppins/Poppins-Thin.ttf'); 
+  font-family: Lato-Regular;
+  src: url('../fonts/Lato/Lato-Regular.ttf'); 
 }
 
 @font-face {
-  font-family: Poppins-Black;
-  src: url('../fonts/Poppins/Poppins-Black.ttf'); 
+  font-family: Lato-Light;
+  src: url('../fonts/Lato/Lato-Light.ttf'); 
 }
+
+@font-face {
+  font-family: Lato-Bold;
+  src: url('../fonts/Lato/Lato-Bold.ttf'); 
+}
+
 
 
 /*//////////////////////////////////////////////////////////////////
@@ -37,6 +43,128 @@ Primary use:
 /*---------------------------------------------*/
 .container {max-width: 1200px;}
 
+
+
+/*//////////////////////////////////////////////////////////////////
+[ Form ]*/
+
+/*---------------------------------------------*/
+.wrap-input100 {
+  position: relative;
+  max-width: calc(100% - 10px);
+  width: 500px;
+  z-index: 1;
+}
+
+.input100 {
+  display: block;
+  width: 100%;
+  background: #fff;
+  height: 70px;
+  border-radius: 35px;
+  padding: 0 40px;
+}
+
+.focus-input100 {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  border-radius: 35px;
+  box-shadow: 0px 0px 0px 0px;
+  color: rgba(132,106,221, 0.5);
+}
+
+.input100:focus + .focus-input100 {
+  -webkit-animation: anim-shadow 0.5s ease-in-out forwards;
+  animation: anim-shadow 0.5s ease-in-out forwards;
+}
+
+@-webkit-keyframes anim-shadow {
+  to {
+    box-shadow: 0px 0px 80px 30px;
+    opacity: 0;
+  }
+}
+
+@keyframes anim-shadow {
+  to {
+    box-shadow: 0px 0px 80px 30px;
+    opacity: 0;
+  }
+}
+
+
+/*------------------------------------------------------------------
+[ Alert validate ]*/
+
+.validate-input {
+  position: relative;
+}
+
+.alert-validate::before {
+  content: attr(data-validate);
+  position: absolute;
+  max-width: 70%;
+  background-color: #fff;
+  border: 1px solid #c80000;
+  border-radius: 16px;
+  padding: 5px 30px 6px 10px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  right: 12px;
+  pointer-events: none;
+
+  font-family: Lato-Bold;
+  color: #c80000;
+  font-size: 15px;
+  line-height: 1.4;
+  text-align: left;
+
+  visibility: hidden;
+  opacity: 0;
+
+  -webkit-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}
+
+.alert-validate::after {
+  content: "\f06a";
+  font-family: FontAwesome;
+  display: block;
+  position: absolute;
+  color: #c80000;
+  font-size: 20px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  right: 18px;
+}
+
+.alert-validate:hover:before {
+  visibility: visible;
+  opacity: 1;
+}
+
+@media (max-width: 992px) {
+  .alert-validate::before {
+    visibility: visible;
+    opacity: 1;
+  }
+}
 
 /*//////////////////////////////////////////////////////////////////
 [ Simple slide100 ]*/
@@ -60,7 +188,6 @@ Primary use:
 }
 
 
-
 /*==================================================================
     TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 ==================================================================*/
@@ -74,11 +201,28 @@ Primary use:
 
 /*//////////////////////////////////////////////////////////////////
 [ S-Text 0 - 15 ]*/
-.s1-txt1 {
-  font-family: Poppins-Regular;
+
+/*---------------------------------------------*/
+.s2-txt1 {
+  font-family: Lato-Regular;
   font-size: 12px;
-  color: #fff;
   line-height: 1;
+  color: #846add;
+  text-transform: uppercase;
+}
+
+.s2-txt2 {
+  font-family: Lato-Bold;
+  font-size: 15px;
+  line-height: 1.4;
+  color: #846add;
+}
+
+.s2-txt3 {
+  font-family: Lato-Bold;
+  font-size: 15px;
+  line-height: 1.4;
+  color: #fff;
   text-transform: uppercase;
 }
 
@@ -86,35 +230,40 @@ Primary use:
 
 /*//////////////////////////////////////////////////////////////////
 [ M-Text 16 - 25 ]*/
-.m1-txt1 {
-  font-family: Poppins-Regular;
-  font-size: 18px;
-  color: #555;
+
+/*---------------------------------------------*/
+.m2-txt1 {
+  font-family: Lato-Light;
+  font-size: 25px;
   line-height: 1.2;
-  text-transform: uppercase;
+  color: #fff;
 }
 
+.m2-txt2 {
+  font-family: Lato-Bold;
+  font-size: 25px;
+  line-height: 1;
+  color: #fff;
+}
 
 
 /*//////////////////////////////////////////////////////////////////
 [ L-Text >= 26 ]*/
 .l1-txt1 {
-  font-family: Poppins-Thin;
-  font-size: 72px;
+  font-family: Poppins-Bold;
+  font-size: 50px;
   line-height: 1.1;
-  color: rgba(255,255,255,0.5);
-  text-transform: uppercase;
-  letter-spacing: 15px;
-}
-
-.l1-txt2 {
-  font-family: Poppins-Black;
-  font-size: 120px;
-  line-height: 1;
   color: #fff;
   text-transform: uppercase;
 }
 
+/*---------------------------------------------*/
+.l2-txt1 {
+  font-family: Lato-Bold;
+  font-size: 40px;
+  line-height: 1;
+  color: #fff;
+}
 
 
 /*==================================================================
@@ -128,21 +277,18 @@ Primary use:
 }
 
 .size2 {
-  min-width: 140px;
-  height: 50px;
+  width: 155px;
+  height: 155px;
 }
 
 .size3 {
-  width: 36px;
-  height: 36px;
+  min-width: 160px;
+  height: 70px;
 }
-
 
 /*//////////////////////////////////////////////////////////////////
 [ Width ]*/
-.wsize1 {
-  width: 195px;
-}
+
 
 /*//////////////////////////////////////////////////////////////////
 [ Height ]*/
@@ -165,7 +311,10 @@ Primary use:
 
 /*//////////////////////////////////////////////////////////////////
 [ Border ]*/
-
+.bor1 {
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+}
 
 
 
@@ -174,7 +323,7 @@ Primary use:
    WHERE WHERE WHERE WHERE WHERE WHERE WHERE WHERE WHERE WHERE WHERE  
 ==================================================================*/
 .where1 {
-  align-self: flex-start;
+  margin: 0 5px 20px 5px;
 }
 
 
@@ -186,7 +335,6 @@ Primary use:
 .placeholder0:-moz-placeholder { color: #999999;}
 .placeholder0::-moz-placeholder { color: #999999;}
 .placeholder0:-ms-input-placeholder { color: #999999;}
-
 
 /*---------------------------------------------*/
 .overlay1 {
@@ -202,60 +350,19 @@ Primary use:
   height: 100%;
   top: 0;
   left: 0;
-  background: #7579ff;
-  background: -webkit-linear-gradient(bottom, #b224ef, #7579ff);
-  background: -o-linear-gradient(bottom, #b224ef, #7579ff);
-  background: -moz-linear-gradient(bottom, #b224ef, #7579ff);
-  background: linear-gradient(bottom, #b224ef, #7579ff);
-  opacity: 0.3;
-}
-
-.overlay1::after {
-  content: "";
-  display: block;
-  position: absolute;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background: rgba(0,0,0,0.4);
-}
-
-/*---------------------------------------------*/
-.wrappic1 {
-  display: block;
-  flex-grow: 1;
-}
-
-.wrappic1 img {
-  max-width: 100%;
+  /* background-color: rgba(0,0,0,0.8); */
 }
 
 /*---------------------------------------------*/
 .how-btn1 {
-  padding: 0 15px;
-  background-color: #fff;
-  border-radius: 25px;
+  border-radius: 35px;
+  background-color: #846add;
+  padding-right: 20px;
+  padding-left: 20px;
 }
 
 .how-btn1:hover {
-  background-color: #555555;
-  color: #fff;
-}
-
-/*---------------------------------------------*/
-.how-social {
-  color: #fff;
-  font-size: 18px;
-  border: 1px solid #fff;
-  background-color: transparent;
-  border-radius: 50%;
-}
-
-.how-social:hover {
-  background-color: #fff;
-  color: #555;
+  background-color: #5d43b5;
 }
 
 
@@ -386,11 +493,8 @@ Primary use:
   .p-r-15-sm {padding-right: 15px;}
 
   .w-full-sm {width: 100%;}
-
   /*---------------------------------------------*/
-  .respon1 {
-    font-size: 45px;
-  }
+
   
 }
 
